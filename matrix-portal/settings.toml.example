@@ -1,0 +1,11 @@
+# WiFi Configuration
+CIRCUITPY_WIFI_SSID = "YourWiFiNetworkName"
+CIRCUITPY_WIFI_PASSWORD = "YourWiFiPassword"
+
+# API Server Configuration
+# This should be the IP address of the computer running the fantasy-football-api server
+# To find your computer's IP:
+#   Mac/Linux: ifconfig | grep "inet " | grep -v 127.0.0.1
+#   Windows: ipconfig
+API_HOST = "192.168.1.XXX"
+API_PORT = "8000"

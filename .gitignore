@@ -1,0 +1,38 @@
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+
+# Virtual environments
+.venv
+venv/
+env/
+
+# Environment files with secrets
+.env
+settings.toml
+
+# Lock files (optional - uncomment if you want to ignore)
+# uv.lock
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+.Spotlight-V100
+.Trashes
+
+# CircuitPython specific
+.fseventsd/
+.metadata_never_index
+boot_out.txt
+lib/
