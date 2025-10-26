@@ -262,7 +262,7 @@ class FantasyMatrixDisplay:
         
         # PROJ: xx.x
         proj_text = f"PROJ: {self.projected_median:.1f}"
-        proj_x = (64 - (len(proj_text) * 6)) // 2
+        proj_x = (64 - (len(proj_text) * 6)) // 2 + 1  # Add 1 pixel offset
         new_group.append(label.Label(
             terminalio.FONT,
             text="PROJ:",
