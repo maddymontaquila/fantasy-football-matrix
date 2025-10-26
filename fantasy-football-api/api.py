@@ -39,6 +39,7 @@ class MatrixData(BaseModel):
     week: int
     league_name: str
     total_matchups: int
+    projected_median: float
 
 @app.get("/")
 async def root():
@@ -144,11 +145,22 @@ async def get_league_data() -> MatrixData:
             )
             matchups_data.append(matchup_data)
 
+        # Calculate projected median from all teams
+        all_projections = []
+        for matchup in matchups_data:
+            all_projections.append(matchup.home_team.projected_score)
+            all_projections.append(matchup.away_team.projected_score)
+        
+        sorted_projections = sorted(all_projections)
+        n = len(sorted_projections)
+        projected_median = sorted_projections[n // 2] if n % 2 else (sorted_projections[n // 2 - 1] + sorted_projections[n // 2]) / 2
+
         return MatrixData(
             matchups=matchups_data,
             week=current_week,
             league_name=league.settings.name,
-            total_matchups=len(matchups_data)
+            total_matchups=len(matchups_data),
+            projected_median=round(projected_median, 1)
         )
 
     except Exception as e:
